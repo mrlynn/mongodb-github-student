@@ -1,0 +1,31 @@
+<div class="header header-sub hide-desktop show-iframe">
+    <div class="header-sub-header">
+        <p>Students</p>
+    </div>
+</div>
+<div class="row">
+    <table class="table">
+        <thead>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Student?</th>
+            <th>Code</th>
+            <th>Created</th>
+            <th>Action</th>
+        </thead>
+        <tbody>
+    {{# each students }}
+        <tr>
+        <td>this.username</td>
+        <td>this.name</td>
+        <td>this.email</td>
+        <td>this.isStudent</td>
+        <td>this.atlas.code</td>
+        <td>this.atlas.created</td>
+        <td>action</td>
+        </tr>
+    {{/each}} <!-- each student -->
+    </tbody>
+    </table>
+</div>

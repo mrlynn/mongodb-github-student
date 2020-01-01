@@ -1,0 +1,46 @@
+body {
+    padding-top: 3.5rem;
+  }
+
+  img {
+    padding: 10px;
+  }
+  .benefitHeader {
+    padding-top: 10px;
+    font-weight: 450;
+    margin-top: 25px;
+    font-family: 'Fira Sans', sans-serif;
+  }
+  
+  .benefit {
+    font-weight: 200;
+    font-size: .75em;
+    font-family: 'Fira Sans', sans-serif;
+    margin-top: 24px;
+  }
+
+  .buttonfont {
+    font-family: "Arial Bold", Gadget, sans-serif;
+    font-style: normal;
+  
+    font-size: 15px ! important;
+ }
+ .btn-file {
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-file input[type=file] {
+      position: absolute;
+      top: 0;
+      right: 0;
+      min-width: 100%;
+      min-height: 100%;
+      font-size: 100px;
+      text-align: right;
+      filter: alpha(opacity=0);
+      opacity: 0;
+      outline: none;
+      background: white;
+      cursor: inherit;
+      display: block;
+  }
