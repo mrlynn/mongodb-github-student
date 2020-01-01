@@ -32,8 +32,15 @@
                     value="{{user.github.name}}" disabled>
             
                 <label for="email" class="col-form-label">Email*</label>
-                <input id="email" name="email" placeholder="Email" class="form-control here" required="required"
+                {{#if user.github.email}}
+                 <input id="email" name="email" placeholder="Email" class="form-control here" required="required"
                     type="text" value="{{user.github.email}}" disabled>
+                {{else}}
+                <div class="extended-markdown note border rounded-1 mb-4 p-3 border-blue bg-blue-light f5">
+                    <p>You do not have a publically visible email address associated with your GitHub account. While this is not required, we will be unable to communicate with you to notify you of your MongoDB Atlas Codes.  If you wish to add an email address to your account, visit your <a href="https://github.com/settings/emails">GitHub Email Preference</a> page to add an email address.</p>
+                </div>
+            
+                {{/if}}
             </div>
         </form>
     </div>
