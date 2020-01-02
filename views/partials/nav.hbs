@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
   
-                    <img src="/images/logo.png" class="rounded-circle" width=70>
+    <img src="/images/logo.png" class="rounded-circle" width=70>
         
     <a class="navbar-brand" href="#">{{title}}</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
@@ -20,14 +20,12 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
             {{#if user}}
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     {{#if user.imgUrl}}
                     <img src="{{user.imgUrl}}" class="rounded-circle" width=50>
                     {{else }}
                     <img src="/images/user.png" class="rounded-circle" width=50>
-
                     {{/if}}
                 </a>
                 <div class="dropdown-menu dropdown-menu-right dropdown-default"
