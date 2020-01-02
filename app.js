@@ -76,6 +76,7 @@ app.use(express.static(__dirname + '/public'));
 
 app.use(passport.initialize());
 app.use(passport.session());
+
 if (env === 'development') {
   app.use(logger('dev'));
 }
@@ -103,6 +104,7 @@ app.use('/', indexRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
+  console.log("Before error: " + JSON.stringify(req.query))
   next(createError(404));
 });
 
@@ -117,7 +119,6 @@ app.use(function(req, res, next) {
 //   res.render('error');
 // });
 module.exports = app;
-
 
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);

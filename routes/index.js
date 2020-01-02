@@ -15,6 +15,9 @@ var studentRouter = require('./students');
 router.get("/", function(req, res, next) {
   console.log("User: " + req.user);
   console.log("Authenticated: " + req.isAuthenticated());
+  if (req.isAuthenticated==false) {
+    req.user=null;
+  }
   res.render("index", {
     title: "MongoDB Student Pack",
     user: req.user,

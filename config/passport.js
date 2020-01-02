@@ -29,7 +29,7 @@ module.exports = function(passport) {
         console.log("In passport github strategy");
         process.nextTick(function() {
           console.log("In passport github strategy in next tick");
-          User.findOne({ "github.id": profile.id }, function(err, user) {
+          User.findOne({ "github.id": profile.id }, async function(err, user) {
             if (err) {
                 return done(err);
             }
@@ -91,22 +91,27 @@ module.exports = function(passport) {
                     console.log("Error: " + err.message);
                     return done(err);
                 })
-              const newUser = new User();
-              newUser.isStudent=isStudent;
-              newUser.github.id = profile.id;
-              newUser.github.token = accessToken;
-              newUser.github.name = profile.displayName;
-              if (profile.emails != undefined) {
-                newUser.github.email = profile.emails[0].value;
-                newUser.email = profile.emails[0].value;
-              } else {
-                newUser.email = "";
-                newUser.github.email = "";
-              }
-              newUser.name = profile.displayName;
-              newUser.imgUrl = profile.photos[0].value || "";
-              newUser.github.username = profile.username;
-              CodeUtil.fetchCodeForUser(newUser, function(err,code) {
+                var email = '';
+                if (profile.emails != undefined) {
+                  email = profile.emails[0].value;
+                }
+                var imgUrl = profile.photos[0].value || "";
+              const newUser = new User({
+                isStudent: isStudent,
+                github: {
+                  id: profile.id,
+                  token: accessToken,
+                  name: profile.displayName,
+                  email: email
+                },
+                email: email,
+                imgUrl: imgUrl,
+                username: profile.username
+              });
+              await CodeUtil.fetchCodeForUser(newUser, function(err,code) {
+                if (err) {
+                  throw err;
+                }
                 newUser.atlas.code = code;
                 newUser.save(function(err) {
                   if (err) throw err;
