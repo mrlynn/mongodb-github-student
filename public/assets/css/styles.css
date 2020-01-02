@@ -44,3 +44,25 @@ body {
       cursor: inherit;
       display: block;
   }
+
+  footer {
+    display: block;
+}
+
+.p-v-30 {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.w-full {
+  width: 100%;
+}
+
+element.style {
+  background-color: #F5F6F7;
+  color: #1A1A1A;
+}
+.m-v-10 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
