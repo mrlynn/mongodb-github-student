@@ -1,137 +1,121 @@
-<div class="App">
-  <div class="container">
-    {{> jumbotron}}
-      {{#if flashMessages }}
-        <div class="col-sm-12 col-md-12">
-          {{#if flashMessages.success }}
-            <div id="success" class="alert alert-success">
-              {{flashMessages.success}}
-            </div>
-          {{else if flashMessages.error }}
-            <div id="error" class="alert alert-warning">
-              {{flashMessages.error}}
-            </div>
-          {{/if}}
-        </div>
-      {{/if}}
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 text-center">
-            <h1 class="mt-5">
-              MongoDB is part of the GitHub Student Developer Pack
-            </h1>
-            <p class="lead">
-              Learn more about the
-              <a href="https://education.github.com/pack">
-                GitHub Student Developer Pack
-              </a>
-            </p>
-            <p>
-              MongoDB is a general purpose, document-based, distributed
-              database built for modern application developers and for the
-              cloud era. No database makes you more productive.
-            </p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-12 text-center">
-
-            <h2 class="mt-5">
-              Benefits of Participation
-              </h1>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-4 text-center">
-            <Image width="100" src="/images/compass.png" fluid thumbnail></Image>
-            <div class="benefitHeader">MongoDB Compass</div>
-            <div class="benefit text-left">
-              MongoDB Compass is the GUI for MongoDB. Compass allows you to
-              analyze and understand the contents of your data without
-              formal knowledge of MongoDB query syntax. In addition to
-              exploring your data in a visual environment, you can also use
-              Compass to optimize query performance, manage indexes, and
-              implement document validation.
-            </div>
-            <br></br>
-            <a class="btn btn-dark btn-sm" href="https://www.mongodb.com/download-center/compass" role='button'>
-              Learn More
-            </a>
-            
-        
-
-          </div>
-          <div class="col-lg-4 text-center">
-            <Image width="100" src="/images/student.png" fluid thumbnail></Image>
-            <div class="benefitHeader">
-              MongoDB University On-Demand
-            </div>
-            <div class="benefit text-left">
-              All of our MongoDB University training courses - from beginner
-              to advanced - are completely free for anyone and everyone. As
-              part of the on-demand program you are able to take the courses
-              at your leisure rather than having to adhere to our normal
-              course schedule.
-            </div>
-            <br></br>
-            <a role="button" href="https://university.mongodb.com/" class='btn btn-dark btn-sm' variant="dark" size="sm">
-              Learn More
-            </a>
-            
-          </div>
-          <div class="col-lg-4 text-center">
-            <Image width="100" src="/images/cloud.png" fluid thumbnail></Image>
-            <div class="benefitHeader">
-              $200 in MongoDB Atlas Credits
-            </div>
-            <div class="benefit text-left">
-              MongoDB Atlas is the global cloud database service for
-              applications built on MongoDB. You can easily deploy fully
-              managed databases within minutes to get started. If you scale
-              up, MongoDB Atlas’ automation and proven best practices
-              guarantee availability, scalability, and compliance with the
-              most demanding data security and privacy standards.
-            </div>
-            <br></br>
-            <a role="button" href="https://www.mongodb.com/cloud/atlas" class='btn btn-dark btn-sm' variant="dark"
-              size="sm">
-              Learn More
-            </a>
-          </div>
-        </div>
-        <hr>
-        <div class="row">
-          <div class="col-lg-12 text-center signup">
-            <ul class="list-unstyled">
-              {{#if user}}
-                {{#if user.isStudent}}
-              <div class="col-md-12">
-                <h4>Welcome {{user.name}}</h4>
-                <hr>
-                <p>
-                  Visit your <a href="/profile">profile</a> to view your benefit codes and links to products and
-                  downloads.
-                </p>
-              </div>
-
-                {{else}}
-              <p>
-                Welcome and thanks for logging in. Unfortunately, we are unable to verify your status as a participant
-                in the GitHub Student Developer Pack. Please visit <a href=https://education.github.com/benefits> the
-                  GitHub Student Pack home</a> for additional information and to register. </p> 
-                  
-                {{/if}} 
-              {{else}} 
-                <a class="btn btn-warning" href="https://github.com/login/oauth/authorize?client_id={{client_id}}"
-                  role="button">Sign in with GitHub</a>
-              {{/if}}
-
-            </ul>
-          </div>
-        </div>
-        <div class="row">
-{{> faq}}
-        </div>
+{{> jumbotron}}
+{{#if flashMessages }}
+<div class="col-sm-12 col-md-12">
+  {{#if flashMessages.success }}
+  <div id="success" class="alert alert-success">
+    {{flashMessages.success}}
+  </div>
+  {{else if flashMessages.error }}
+  <div id="error" class="alert alert-warning">
+    {{flashMessages.error}}
+  </div>
+  {{/if}}
+</div>
+{{/if}}
+<div class="container">
+  
+  <div class="row">
+    <div class="col-lg-12 text-center">
+      <h1 class="mt-5">
+        MongoDB is part of the GitHub Student Developer Pack
+      </h1>
+      <p class="lead">
+        Learn more about the
+        <a href="https://education.github.com/pack">
+          GitHub Student Developer Pack
+        </a>
+      </p>
+      <p>
+        MongoDB is a general purpose, document-based, distributed
+        database built for modern application developers and for the
+        cloud era. No database makes you more productive.
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12 text-center">
+      <h2 class="mt-5">
+        Benefits of Participation
+      </h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="fl fl-justify-center w-max-1300 m-auto fl-wrap overflow-hidden">
+      <div class="fl-1 txt-center p-h-30 w-full h-full w-min-240 w-max-400 p-v-20 fl-full-if-lt-800 relative">
+        <div class="h-50 m-auto fl fl-center"><img height="75" width="75"
+            src="/images/compass.png"></div>
+        <h4 class="dark-gray fnt-20">MongoDB Compass</h4>
+        <h6 class="dark-gray fnt-18"><span>MongoDB Compass is the GUI for MongoDB. Compass allows you to
+        analyze and understand the contents of your data without
+        formal knowledge of MongoDB query syntax. In addition to
+        exploring your data in a visual environment, you can also use
+        Compass to optimize query performance, manage indexes, and
+        implement document validation.</span></h6>
+        <a href="https://www.mongodb.com/download-center/compass">
+      <button class="relative btn-green btn-sm m-10">Learn More</button>
+      </a>
+      </div>
+      <div class="fl-1 txt-center p-h-30 w-full h-full w-min-240 w-max-400 p-v-20 fl-full-if-lt-800 relative">
+        <div class="h-50 m-auto fl fl-center"><img height="75" width="75"
+            src="/images/student.png"></div>
+        <h4 class="dark-gray fnt-20">MongoDB University On-Demand</h4>
+        <h6 class="dark-gray fnt-18"><span>All of our MongoDB University training courses - from beginner
+        to advanced - are completely free for anyone and everyone. As
+        part of the on-demand program you are able to take the courses
+        at your leisure rather than having to adhere to our normal
+        course schedule.</span></h6>
+        <a href="https://university.mongodb.com/">
+      <button class="relative btn-green btn-sm m-10">Learn More</button>
+      </a>
+      </div>
+      <div class="fl-1 txt-center p-h-30 w-full h-full w-min-240 w-max-400 p-v-20 fl-full-if-lt-800 relative">
+        <div class="h-50 m-auto fl fl-center"><img height="75" width="75"
+            src="/images/cloud.png"></div>
+        <h4 class="dark-gray fnt-20">$200 in MongoDB Atlas Credits</h4>
+        <h6 class="dark-gray fnt-18"><span>MongoDB Atlas is the global cloud database service for
+        applications built on MongoDB. You can easily deploy fully
+        managed databases within minutes to get started. If you scale
+        up, MongoDB Atlas’ automation and proven best practices
+        guarantee availability, scalability, and compliance with the
+        most demanding data security and privacy standards. </span></h6>
+        <a href="https://www.mongodb.com/cloud/atlas">
+      <button class="relative btn-green btn-sm m-10">Learn More</button>
+      </a>
       </div>
     </div>
   </div>
+
+  <hr>
+  <div class="row">
+    <div class="col-lg-12 text-center signup">
+      <ul class="list-unstyled">
+        {{#if user}}
+        {{#if user.isStudent}}
+        <div class="col-md-12">
+          <h4>Welcome {{user.name}}</h4>
+          <hr>
+          <p>
+            Visit your <a href="/profile">profile</a> to view your benefit codes and links to products and
+            downloads.
+          </p>
+        </div>
+
+        {{else}}
+        <p>
+          Welcome and thanks for logging in. Unfortunately, we are unable to verify your status as a participant
+          in the GitHub Student Developer Pack. Please visit <a href=https://education.github.com/benefits> the GitHub
+            Student Pack home</a> for additional information and to register. </p> {{/if}} 
+            {{else}} 
+            <a href="https://github.com/login/oauth/authorize?client_id={{client_id}}">
+      <button class="relative btn-warning btn-sm m-10"><b>Sign in with GitHub</b></button>
+      </a>
+          
+          {{/if}}
+
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    {{> faqnew}}
+  </div>
+</div>

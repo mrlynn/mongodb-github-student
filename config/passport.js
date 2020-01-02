@@ -6,11 +6,14 @@ const CodeUtil = require("./codeUtil");
 
 module.exports = function(passport) {
   passport.serializeUser(function(user, done) {
+    console.log("Serialize");
+
     done(null, user.id);
   });
 
   passport.deserializeUser(function(id, done) {
     User.findById(id, function(err, user) {
+      console.log("Deserialize");
       done(err, user);
     });
   });
