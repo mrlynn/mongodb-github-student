@@ -13,7 +13,7 @@ router.get('/github/callback',
   passport.authenticate('github', { failureRedirect: '/login' }),
   function(req, res) {
     // Successful authentication, redirect home.
-    res.redirect('/');
+    res.redirect('/profile');
     // res.render("profile", {
     //   title: "MongoDB Student Pack",
     //   user: req.user,

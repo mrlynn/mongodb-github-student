@@ -59,7 +59,7 @@ app.use(
   session({
     secret: config.site.secret,
     saveUninitialized: false,
-    resave: true,
+    resave: false,
     store: store
   })
 );

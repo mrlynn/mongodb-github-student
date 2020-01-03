@@ -1,43 +1,45 @@
-<div class="container">
-    <div class="jumbotron text-center">
-        <img src=/images/githubsdp-plus-mongodb.png> </div> <div class="container">
+{{>jumbotron}}
+<section class="p-25">
+  <h2 class="m-v-0 m-auto p-t-10 p-b-10 txt-center dark-green fnt-36 w-max-700 fnt-light"><span>MongoDB Student Pack
+      Admin > Upload</span></h2>
+  <div class="fl-center">
+    <h5 class="m-0 p-v-10 txt-left fnt-light w-max-720 fnt-24 dark-gray"><span>Use this section to maintain the student
+        pack system</span></h5>
+  </div>
+</section>
+{{#if flashMessages }}
+<div class="col-sm-12 col-md-12">
+  {{#if flashMessages.success }}
+  <div id="success" class="alert alert-success">
+    {{flashMessages.success}}
+  </div>
+  {{else if flashMessages.error }}
+  <div id="error" class="alert alert-warning">
+    {{flashMessages.error}}
+  </div>
+  {{/if}}
+</div>
+{{/if}}
+<div class="row">
+  <h4>Upload Codes</h4>
+  <hr>
+</div>
+<div class="row">
+  {{# if user.admin }}
+  <div class="form-group form-group-lg align-items-center">
+    <p>Use the form below to upload a list of authors.
+      Click <a href="/template">here</a> for an example template.</p>
+    <form class="form" action="/upload" method="POST" encType="multipart/form-data">
+      <span class="btn btn-default btn-file">
+        <input class="form-control" type="file" name="file" accept="*.csv" /><br /><br />
+      </span>
+      <input class="btn btn-lg btn-primary btn-block" type="submit" value="Upload">
 
-    </div>
-    {{#if flashMessages }}
-        <div class="col-sm-12 col-md-12">
-          {{#if flashMessages.success }}
-            <div id="success" class="alert alert-success">
-              {{flashMessages.success}}
-            </div>
-          {{else if flashMessages.error }}
-            <div id="error" class="alert alert-warning">
-              {{flashMessages.error}}
-            </div>
-          {{/if}}
-        </div>
-      {{/if}}
-    <div class="row">
-        <h4>Upload Codes</h4>
-        <hr>
-    </div>
-    <div class="row">
-    {{# if user.admin }}
-            <div class="form-group form-group-lg align-items-center">
-                <p>Use the form below to upload a list of authors.
-                    Click <a href="/template">here</a> for an example template.</p>
-                <form class="form" action="/upload" method="POST" encType="multipart/form-data">
-                <span class="btn btn-default btn-file">
-                    <input class="form-control" type="file" name="file" accept="*.csv" /><br /><br />
-                </span>
-                    <input class="btn btn-lg btn-primary btn-block" type="submit" value="Upload">
-                    
-                </form>
-            </div>
-    {{else}}
-            <div class="form-group form-group-lg align-items-center">
-                <p>You must have administrative privileges to access this function.</p>
-            </div>  
-    {{/if}}
-    </div>
-
+    </form>
+  </div>
+  {{else}}
+  <div class="form-group form-group-lg align-items-center">
+    <p>You must have administrative privileges to access this function.</p>
+  </div>
+  {{/if}}
 </div>

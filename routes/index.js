@@ -16,7 +16,7 @@ router.get("/", function(req, res, next) {
   console.log("User: " + req.user);
   console.log("Authenticated: " + req.isAuthenticated());
   if (req.isAuthenticated==false) {
-    req.user=null;
+     req.user=null;
   }
   res.render("index", {
     title: "MongoDB Student Pack",
@@ -61,7 +61,7 @@ router.get("/logout", function(req, res) {
 
 router.get("/admin", isAdmin(), function(req, res, next) {
   console.log(
-    "In GET /admin"
+    "In GET /admin: " + JSON.stringify(req.user)
   );
   res.render("admin", {
     title: "MongoDB Student Pack",
@@ -88,8 +88,10 @@ function isAdmin() {
       `req.session.passport.user: ${JSON.stringify(req.session.passport)}`
     );
     if (req.isAuthenticated()) {
-      req.user = req.session.passport;
+      // req.user = req.session.passport;
+      console.log("req.user: " + JSON.stringify(req.user));
       if (req.user.admin == true) {
+  
         return next();
       } else {
         req.flash('error','You must have administrative privileges to access that page.');
