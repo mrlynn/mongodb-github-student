@@ -18876,6 +18876,7 @@ code,
 .btn-blush,
 .btn-marigold,
 .btn-air,
+.btn-yellow,
 .btn-bluebird,
 .btn-green,
 .btn-dark-green,
@@ -18948,7 +18949,7 @@ code,
 }
 .btn-black {
   color: #fff;
-  background-color: #fff;
+  background-color: #000;
 }
 .btn-gray {
   color: #b3bbc1;
@@ -18986,6 +18987,11 @@ code,
 .btn-green {
   color: #fff;
   background-color: #13aa52;
+}
+.btn-yellow {
+  color: #fff;
+  background-color: #ffad00;
+  border: 1px solid #ffad00;
 }
 .btn-pale-green {
   color: #b3bbc1;

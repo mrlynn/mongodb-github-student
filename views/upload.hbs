@@ -30,11 +30,10 @@
     <p>Use the form below to upload a list of authors.
       Click <a href="/template">here</a> for an example template.</p>
     <form class="form" action="/upload" method="POST" encType="multipart/form-data">
-      <span class="btn btn-default btn-file">
-        <input class="form-control" type="file" name="file" accept="*.csv" /><br /><br />
+      <span class="btn btn-white btn-file">
+        <i class="fa fa-file"><input class="form-control" type="file" name="file" accept="*.csv" />&nbsp;Select File</i><br /><br />
       </span>
-      <input class="btn btn-lg btn-primary btn-block" type="submit" value="Upload">
-
+      <input class="btn btn-lg btn-green btn-block" type="submit" value="Upload">
     </form>
   </div>
   {{else}}
