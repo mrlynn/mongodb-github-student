@@ -1,29 +1,51 @@
-{{>jumbotron}}
-<section class="p-25">
-    <h2 class="m-v-0 m-auto p-t-10 p-b-10 txt-center dark-green fnt-36 w-max-700 fnt-light"><span>MongoDB Student Pack Admin</span></h2>
-    <div class="fl-center">
-      <h5 class="m-0 p-v-10 txt-left fnt-light w-max-720 fnt-24 dark-gray"><span>Use this section to maintain the student pack system</span></h5>
-    </div>
-  </section>
-    
-    <div class="row">
-        <h4>Credit Code Maintenance</h4>
-        <hr>
-        <div class="form-group form-group-lg align-items-center">
-            <h5>Import Credits</h5>
-            <hr>
-            <button name="submit" type="submit" href="/upload"
-                class="btn btn-primary">Upload Credits</button>
+
+<div class="wrapper">
+    <!-- Sidebar -->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3>Bootstrap Sidebar</h3>
         </div>
-        
-    </div>
-    <div class="row">
-        <h4>Student Mainteance</h4>
-        <hr>
-        <div class="form-group form-group-lg align-items-center">
-            <button name="submit" type="submit" href="/students"
-                class="btn btn-primary">Maintain Students</button>
-        </div>
-        
-    </div>
+
+        <ul class="list-unstyled components">
+            <p>Dummy Heading</p>
+            <li class="active">
+                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
+                <ul class="collapse list-unstyled" id="homeSubmenu">
+                    <li>
+                        <a href="#">Home 1</a>
+                    </li>
+                    <li>
+                        <a href="#">Home 2</a>
+                    </li>
+                    <li>
+                        <a href="#">Home 3</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">About</a>
+            </li>
+            <li>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
+                <ul class="collapse list-unstyled" id="pageSubmenu">
+                    <li>
+                        <a href="#">Page 1</a>
+                    </li>
+                    <li>
+                        <a href="#">Page 2</a>
+                    </li>
+                    <li>
+                        <a href="#">Page 3</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Portfolio</a>
+            </li>
+            <li>
+                <a href="#">Contact</a>
+            </li>
+        </ul>
+    </nav>
+
 </div>

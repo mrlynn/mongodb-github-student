@@ -85,7 +85,7 @@ app.use(flash());
 
 app.use(function(req, res, next){
   res.locals.flashMessages = req.flash();
-  res.locals.client_id = process.env.GITHUB_CLIENT_ID;
+  res.locals.client_id = process.env.GITHUB_AUTH_CLIENT_ID;
   next();
 });
 require('./config/passport')(passport);

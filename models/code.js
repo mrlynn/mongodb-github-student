@@ -30,3 +30,10 @@ CodeSchema.post('save', function(error, doc, next) {
 });
 
 const Code = (module.exports = mongoose.model('Code', CodeSchema));
+
+module.exports.getNextCode = function(id) {
+  var query = { assigned: false}
+  var update = { student: id, assigned: true }
+  var code = Code.findOneAndUpdate(query,update);
+  return code;
+}

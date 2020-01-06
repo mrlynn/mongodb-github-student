@@ -69,6 +69,17 @@ router.get("/admin", isAdmin(), function(req, res, next) {
     client_id: process.env.GITHUB_AUTH_CLIENT_ID
   });
 });
+router.get("/admin/students", isAdmin(), function(req, res, next) {
+  console.log(
+    "In GET /students: " + JSON.stringify(req.user)
+  );
+  res.render("students", {
+    title: "MongoDB Student Pack",
+    user: req.user,
+    client_id: process.env.GITHUB_AUTH_CLIENT_ID
+  });
+});
+
 
 function authenticationMiddleware() {
   return (req, res, next) => {
