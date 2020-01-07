@@ -35,5 +35,5 @@ module.exports.getNextCode = function(id) {
   var query = { assigned: false}
   var update = { student: id, assigned: true }
   var code = Code.findOneAndUpdate(query,update);
-  return code;
+  return code.code;
 }

@@ -27,8 +27,9 @@ module.exports = function(passport) {
       },
       function(accessToken, refreshToken, profile, done) {
         console.log("In passport github strategy");
-        // process.nextTick( function() {
-          User.checkStudent(accessToken,profile.id,function(err,user) {
+        process.nextTick( function() {
+          console.log("got profile back: " + JSON.stringify(profile));
+          User.checkStudent(accessToken,profile,function(err,user) {
           // User.findOne({ "github.id": profile.id }, function(err, user) {
             if (err) {
               return done(err);
@@ -43,7 +44,7 @@ module.exports = function(passport) {
               return done(err,user);
             }
           });
-        // });
+        });
       }
     )
   );
