@@ -30,10 +30,14 @@ CodeSchema.post('save', function(error, doc, next) {
 });
 
 const Code = (module.exports = mongoose.model('Code', CodeSchema));
-
-module.exports.getNextCode = function(id) {
+/**
+ * function: getNextCode  This function queries the MongoDB DB of Atlas Promo Codes and selects
+ * one that has not been previously assigned. It records the student id once if finds an available code.
+ * @param   id  String  student id that will receive the next available Atlas Promo Code
+ */
+module.exports.getNextCode = async function(id) {
   var query = { assigned: false}
   var update = { student: id, assigned: true }
-  var code = Code.findOneAndUpdate(query,update);
+  var code = await Code.findOneAndUpdate(query,{$set: update});
   return code.code;
 }

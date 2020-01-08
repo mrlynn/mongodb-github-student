@@ -9,6 +9,7 @@ mongoose.set("useCreateIndex", true);
 var UserSchema = mongoose.Schema(
   {
     name: String,
+    username: String,
     isStudent: {
       type: Boolean,
       default: false
@@ -119,6 +120,9 @@ module.exports.checkStudent = function(token, profile, callback) {
     .set("Authorization", "token " + token)
     .then(response => {
       var query = { "github.id": profile.id };
+      console.log("Full Response: " + JSON.stringify(response));
+      var data = JSON.parse(response.text);
+      var isStudent = data.student;
       User.findOne(query, async function(err, user) {
         if (!user) {
           user = new User();
@@ -128,8 +132,8 @@ module.exports.checkStudent = function(token, profile, callback) {
         } else {
           code = user.atlas.code;
         }
-        user.isStudent = response.text.student;
-        var email = "";
+        
+        var email = ""; 
         if (profile.emails) {
           var email = profile.emails[0].value;
         }
@@ -141,13 +145,16 @@ module.exports.checkStudent = function(token, profile, callback) {
           id: profile.id,
           token: token,
           name: profile.displayName,
-          email: email
+          email: email,
+          username: profile.username
         };
         user.email = email;
         user.imgUrl = imgUrl;
         user.username = profile.username;
         user.atlas.code = code;
+        user.isStudent = isStudent;
         user.save();
+        console.log("User before callback: " + JSON.stringify(user));
         callback(null, user);
 
       });

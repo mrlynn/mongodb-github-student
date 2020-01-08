@@ -27,11 +27,15 @@ module.exports = function(passport) {
       },
       function(accessToken, refreshToken, profile, done) {
         console.log("In passport github strategy");
-        process.nextTick( function() {
+        process.nextTick( async function() {
           console.log("got profile back: " + JSON.stringify(profile));
-          User.checkStudent(accessToken,profile,function(err,user) {
+          await User.checkStudent(accessToken,profile,function(err,user) {
+
           // User.findOne({ "github.id": profile.id }, function(err, user) {
+            console.log("Err: " + err);
+            console.log("Back from checkstudent with user: " + user.isStudent);
             if (err) {
+              console.log("Returning null");
               return done(err);
             }
             if (!user) {
@@ -42,6 +46,7 @@ module.exports = function(passport) {
               
             } else {
               return done(err,user);
+
             }
           });
         });
