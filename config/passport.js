@@ -6,14 +6,11 @@ const CodeUtil = require("./codeUtil");
 var ctr=0;
 module.exports = function(passport) {
   passport.serializeUser(function(user, done) {
-    console.log("Serialize");
-    console.log("User: " + JSON.stringify(user));
     done(null, user.id);
   });
 
   passport.deserializeUser(function(id, done) {
     User.findById(id, function(err, user) {
-      console.log("Deserialize");
       done(err, user);
     });
   });
@@ -32,8 +29,6 @@ module.exports = function(passport) {
           await User.checkStudent(accessToken,profile,function(err,user) {
 
           // User.findOne({ "github.id": profile.id }, function(err, user) {
-            console.log("Err: " + err);
-            console.log("Back from checkstudent with user: " + user.isStudent);
             if (err) {
               console.log("Returning null");
               return done(err);
@@ -43,10 +38,8 @@ module.exports = function(passport) {
               // User with github.id not found. Need to add a document for this user.
               //
               console.log("Not User");
-              
             } else {
               return done(err,user);
-
             }
           });
         });

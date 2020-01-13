@@ -141,6 +141,7 @@ module.exports.checkStudent = function(token, profile, callback) {
         if (profile.photos) {
           var imgUrl = profile.photos[0].value || "";
         }
+
         user.github = {
           id: profile.id,
           token: token,
@@ -148,6 +149,7 @@ module.exports.checkStudent = function(token, profile, callback) {
           email: email,
           username: profile.username
         };
+        
         user.email = email;
         user.imgUrl = imgUrl;
         user.username = profile.username;
