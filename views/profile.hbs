@@ -29,16 +29,16 @@
         <form class="form-horizontal">
             <div class="form-group form-group-lg align-items-center">
                 <label for="username" class="col-form-label">User Name*</label>
-                <input id="username" name="username" placeholder="Username" class="form-control here"
+                <input id="username" name="username" placeholder="Username" class="form-control"
                     required="required" type="text" value="{{user.github.username}}" disabled>
             
                 <label for="name" class="col-form-label">Full Name</label>
-                <input id="name" name="name" placeholder="Full Name" class="form-control here" type="text"
+                <input id="name" name="name" placeholder="Full Name" class="form-control" type="text"
                     value="{{user.github.name}}" disabled>
             
                 <label for="email" class="col-form-label">Email*</label>
                 {{#if user.github.email}}
-                 <input id="email" name="email" placeholder="Email" class="form-control here" required="required"
+                 <input id="email" name="email" placeholder="Email" class="form-control " required="required"
                     type="text" value="{{user.github.email}}" disabled>
                 {{else}}
                 <div class="extended-markdown note border rounded-1 mb-4 p-3 border-blue bg-blue-light f5">

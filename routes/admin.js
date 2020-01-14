@@ -2,9 +2,33 @@ var express = require('express');
 var router = express.Router();
 
 /* GET /admin */
-router.get('/', isAdmin(), function(req, res, next) {
-    res.render("admin", { title: "Administration"})
+/**
+ * Administrative
+ */
+
+router.get("/", isAdmin(), function(req, res, next) {
+  console.log(
+    "In GET /admin: " + JSON.stringify(req.user)
+  );
+  res.render("admin", {
+    title: "MongoDB Student Pack",
+    layout: 'admin',
+    user: req.user,
+    client_id: process.env.GITHUB_AUTH_CLIENT_ID
+  });
 });
+router.get("/students", isAdmin(), function(req, res, next) {
+  console.log(
+    "In GET /students: " + JSON.stringify(req.user)
+  );
+  res.render("students", {
+    title: "MongoDB Student Pack",
+    layout: 'admin',
+    user: req.user,
+    client_id: process.env.GITHUB_AUTH_CLIENT_ID
+  });
+});
+
 
 function isAdmin() {
   return (req, res, next) => {
