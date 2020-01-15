@@ -24,7 +24,7 @@
     "express-partials": "^0.3.0",
     "express-session": "^1.17.0",
     "fast-csv": "^4.0.2",
-    "hbs": "~4.0.4",
+    "hbs": "~4.1.0",
     "helmet": "^3.21.2",
     "http-errors": "^1.6.3",
     "json2csv": "^4.5.4",
