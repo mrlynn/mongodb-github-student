@@ -6,6 +6,7 @@ var dotenv = require('dotenv').config();
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
+const pug = require('pug');
 var logger = require('morgan');
 var methodOverride = require('method-override');
 const flash = require('connect-flash');
@@ -49,11 +50,18 @@ var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
+var hbs = exphbs.create({
+  allowProtoMethodsByDefault: true, 
+  allowProtoPropertiesByDefault: true,
+  defaultLayout: 'layout', 
+  extname: '.hbs'
+})
 app.engine(
   'hbs',
-  exphbs({ defaultLayout: 'layout', extname: '.hbs' })
+  hbs.engine
 );
 app.set('view engine', 'hbs');
+// app.set('view engine', 'pug');
 app.use(partials());
 app.use(helmet());
 app.use(compression());

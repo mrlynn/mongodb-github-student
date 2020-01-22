@@ -13,10 +13,10 @@ var studentRouter = require('./students');
 
 /* GET home page. */
 router.get("/", function(req, res, next) {
-  console.log("User: " + req.user);
-  console.log("Authenticated: " + req.isAuthenticated());
+
   if (req.isAuthenticated==false) {
      req.user=null;
+     res.redirect('/');
   }
   res.render("index", {
     title: "MongoDB Student Pack",
@@ -26,6 +26,7 @@ router.get("/", function(req, res, next) {
 });
 
 router.get("/profile", authenticationMiddleware(), function(req, res) {
+
   res.render("profile", {
     title: "MongoDB Student Pack",
     user: req.user,
@@ -55,37 +56,11 @@ router.get("/logout", function(req, res) {
   });
 });
 
-/**
- * Administrative
- */
-
-router.get("/admin", isAdmin(), function(req, res, next) {
-  console.log(
-    "In GET /admin: " + JSON.stringify(req.user)
-  );
-  res.render("admin", {
-    title: "MongoDB Student Pack",
-    user: req.user,
-    client_id: process.env.GITHUB_AUTH_CLIENT_ID
-  });
-});
-router.get("/admin/students", isAdmin(), function(req, res, next) {
-  console.log(
-    "In GET /students: " + JSON.stringify(req.user)
-  );
-  res.render("students", {
-    title: "MongoDB Student Pack",
-    user: req.user,
-    client_id: process.env.GITHUB_AUTH_CLIENT_ID
-  });
-});
 
 
 function authenticationMiddleware() {
   return (req, res, next) => {
-    console.log(
-      `req.session.passport.user: ${JSON.stringify(req.session.passport)}`
-    );
+
     if (req.isAuthenticated()) {
       // req.user = req.session.passport;
       return next();
@@ -100,7 +75,6 @@ function isAdmin() {
     );
     if (req.isAuthenticated()) {
       // req.user = req.session.passport;
-      console.log("req.user: " + JSON.stringify(req.user));
       if (req.user.admin == true) {
   
         return next();
